@@ -3,7 +3,7 @@ namespace: enqualifyapp
 
 # Image
 image:
-  repository: dockerhub.io/enqurainc/enqualify-mapi
+  repository: enqurainc/enverify-mapi
   tag: "20240813.1"
   pullPolicy: IfNotPresent
 
@@ -17,8 +17,8 @@ service:
   targetPort: 8080
 
 # Image
-imagePullSecrets:
-  - name: dockerhubsecret
+#imagePullSecrets:
+ # - name: dockerhubsecret
 
 # Deployment
 strategy:
@@ -36,13 +36,12 @@ volumes:
     persistentVolumeClaim:
       claimName: enqualify-mapi-claim
 
-# Volume
-volumeMounts:
-  appsettingsjs:
-    mountPath: /opt/app-root/app/appsettings.json
-    subPath: appsettings.json
-  videopvc:
-    mountPath: /opt/app-root/app/files
+pvc:
+  storageClassName: nfs-sc
+  volumeName: enqualify-pv
+  resources:
+    requests:
+      storage: 100Gi
 
 # Uygulama
 application:

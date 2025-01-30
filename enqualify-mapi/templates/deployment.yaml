@@ -64,12 +64,12 @@ spec:
           timeoutSeconds: 30
         volumeMounts:
         - name: appsettingsjs
-          mountPath: {{ .Values.volumeMounts[0].mountPath }}
-          subPath: {{ .Values.volumeMounts[0].subPath }}
+          mountPath: /opt/app-root/app/appsettings.json
+          subPath: appsettings.json
         - name: videopvc
-          mountPath: {{ .Values.volumeMounts[1].mountPath }}
-      imagePullSecrets:
-      - name: {{ .Values.imagePullSecrets[0].name }}
+          mountPath: /opt/app-root/app/files
+      #imagePullSecrets:
+      #- name: dockerhubsecret
       volumes:
       - name: appsettingsjs
         configMap:
