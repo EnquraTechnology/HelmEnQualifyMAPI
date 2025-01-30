@@ -16,6 +16,12 @@ service:
   port: 8080
   targetPort: 8080
 
+# Ingress
+ingressClassName: nginx
+rules:
+  host: enqualifymapi.example.com
+
+
 # Image
 #imagePullSecrets:
  # - name: dockerhubsecret
@@ -38,7 +44,8 @@ volumes:
 
 pvc:
   storageClassName: nfs-sc
-  volumeName: enqualify-pv
+  #volumeName: enqualify-pv
+  volumeMode: Filesystem
   resources:
     requests:
       storage: 100Gi
