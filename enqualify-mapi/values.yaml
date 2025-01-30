@@ -3,8 +3,8 @@ namespace: enqualifyapp
 
 # Image
 image:
-  repository: enqurainc/enverify-mapi
-  tag: "20240813.1"
+  repository: ""
+  tag: ""
   pullPolicy: IfNotPresent
 
 # Replica
