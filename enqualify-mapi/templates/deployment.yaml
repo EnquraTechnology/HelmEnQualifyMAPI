@@ -26,7 +26,7 @@ spec:
           requests:
             cpu: 200m
             memory: 1000Mi
-        name: enqualify-api
+        name: enqualify-mapi
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         ports:
